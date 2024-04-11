@@ -1,4 +1,4 @@
-# denops-boilerplate.vim
+# denops-zenn_dev.vim
 
 Superpractilisticexpermientocious.
 
@@ -10,7 +10,7 @@ Superpractilisticexpermientocious.
 
 ## doc
 
-[./doc/boilerplate.txt](./doc/boilerplate.txt)
+[./doc/zenn_dev.txt](./doc/zenn_dev.txt)
 
 # License
 
