@@ -9,14 +9,15 @@ import { isNewArticleArgs, newArticle } from "./command/new_article.ts";
 import {
   ArgStore,
   isArgs,
-} from "https://denopkg.com/kyoh86/denops-arg-store@v0.0.1/mod.ts";
+} from "https://denopkg.com/kyoh86/denops-arg-store@v0.0.3/mod.ts";
 
 export function main(denops: Denops) {
   const argStore = new ArgStore();
 
-  function ensureArgs<T>(func: string, uArgs: unknown, pred: Predicate<T>): T {
+  function ensureArgs<T>(func: string, pred: Predicate<T>, uArgs: unknown): T {
     return ensure(argStore.getArgs(func, ensure(uArgs, isArgs)), pred);
   }
+
   denops.dispatcher = {
     // TODO: init(uArgs: unknown) {
     // TODO: preview(uArgs: unknown) {
@@ -26,7 +27,7 @@ export function main(denops: Denops) {
     async newArticle(uArgs: unknown) {
       return await newArticle(
         denops,
-        ensureArgs("newArticle", uArgs, isNewArticleArgs),
+        ensureArgs("newArticle", isNewArticleArgs, uArgs),
       );
     },
 
