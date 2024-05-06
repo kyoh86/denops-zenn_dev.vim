@@ -1,4 +1,4 @@
-import { is } from "https://deno.land/x/unknownutil@v3.18.0/mod.ts";
+import { is } from "jsr:@core/unknownutil@3.18.0";
 
 const defaultDenoExecutable = "deno";
 const defaultZennArgs = [
@@ -12,21 +12,21 @@ const defaultZennArgs = [
   "npm:zenn-cli",
 ];
 
-export function getDenoExecutable(args: CommonArgs): string {
+export function getDenoExecutable(args: CommonParams): string {
   return args.denoExecutable ?? defaultDenoExecutable;
 }
 
-export function getZennArgs(args: CommonArgs): string[] {
+export function getZennArgs(args: CommonParams): string[] {
   return args.denoRunArgs ?? defaultZennArgs;
 }
 export function getCommandOptions(
-  args: CommonArgs,
+  args: CommonParams,
   otherOptions: Partial<Deno.CommandOptions>,
 ): Deno.CommandOptions {
   return { ...args, ...otherOptions };
 }
 
-export const isCommonArgs = is.ObjectOf({
+export const isCommonParams = is.ObjectOf({
   denoExecutable: is.OptionalOf(is.String),
   denoRunArgs: is.OptionalOf(is.ArrayOf(is.String)),
   cwd: is.OptionalOf(is.String),
@@ -36,7 +36,7 @@ export const isCommonArgs = is.ObjectOf({
   gid: is.OptionalOf(is.Number),
 });
 
-export interface CommonArgs {
+export interface CommonParams {
   denoExecutable?: string;
   denoRunArgs?: string[];
   cwd?: string;

@@ -12,8 +12,8 @@ Contents ~
 Install           |zenn_dev-install|
 Setup             |zenn_dev-setup|
 Function          |zenn_dev-function|
+API               |zenn_dev-api|
 Commands          |zenn_dev-commands|
-Keymaps           |zenn_dev-keymaps|
 Denops commands   |zenn_dev-denops-commands|
 
 
@@ -30,13 +30,28 @@ You need to install *denops.vim* as a dependency.
                                                               *zenn_dev-setup*
 Setup ~
 
+You can setup this plugin by calling |zenn_dev#setup#commands()| and
+|zenn_dev#setup#params| function.
+
 
 ==============================================================================
                                                            *zenn_dev-function*
 Function ~
 
-                                                            *zenn_dev#setup()*
-zenn_dev#setup()
+                                                   *zenn_dev#setup#commands()*
+zenn_dev#setup#commands()
+
+	TODO
+
+                                                     *zenn_dev#setup#params()*
+zenn_dev#setup#params()
+
+	TODO
+
+
+==============================================================================
+                                                                *zenn_dev-api*
+API ~
 
 	TODO
 
@@ -45,10 +60,29 @@ zenn_dev#setup()
                                                            *zenn_dev-commands*
 Commands ~
 
+If you call |zenn_dev#setup#command()| with "commands" option, you can use the
+follwing commands.
 
-==============================================================================
-                                                            *zenn_dev-keymaps*
-Keymaps ~
+                                      *ZennDevNewArticle* *:ZennDevNewArticle*
+:ZennDevNewArticle
+
+	Create new article.
+
+	Deno Execution Options:
+		- ++deno-executable=<deno-executable>: Deno executable path
+		- ++deno-run-args=<deno-run-args>: Deno run arguments
+		- ++cwd=<cwd>: Current working directory
+		- ++clear-env: Clear environment variables
+		- ++uid=<uid>: User ID
+		- ++gid=<gid>: Group ID
+
+	Optional flags:
+		- --slug=<slug> (default: "")
+		- --title=<title> (default: "")
+		- --type=<type> (default: "tech")
+		- --emoji=<emoji>: a single emoji charactor (default: "")
+		- --published (default: false)
+		- --publication-name=<publication-name> (default: "")
 
 
 ==============================================================================

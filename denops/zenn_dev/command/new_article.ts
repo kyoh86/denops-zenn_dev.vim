@@ -1,19 +1,19 @@
-import { Denops } from "https://deno.land/x/denops_std@v6.4.0/mod.ts";
+import { is } from "jsr:@core/unknownutil@3.18.0";
+import { Denops } from "jsr:@denops/core@6.0.6";
 import {
   echoerrCommand,
-} from "https://denopkg.com/kyoh86/denops-util@v0.0.7/command.ts";
+} from "https://denopkg.com/kyoh86/denops-util@v0.0.10/command.ts";
 import * as emoji from "https://deno.land/x/emoji@0.3.0/mod.ts";
 import {
-  type CommonArgs,
+  type CommonParams,
   getCommandOptions,
   getDenoExecutable,
   getZennArgs,
-  isCommonArgs,
+  isCommonParams,
 } from "./common.ts";
-import { is } from "https://deno.land/x/unknownutil@v3.17.0/mod.ts";
 
-export const isNewArticleArgs = is.IntersectionOf([
-  isCommonArgs,
+export const isNewArticleParams = is.IntersectionOf([
+  isCommonParams,
   is.ObjectOf({
     slug: is.OptionalOf(is.String), // 記事のスラッグ. `a-z0-9`とハイフン(`-`)とアンダースコア(`_`)の12〜50字の組み合わせ
     title: is.OptionalOf(is.String), // 記事のタイトル
@@ -24,7 +24,7 @@ export const isNewArticleArgs = is.IntersectionOf([
   }),
 ]);
 
-export type newArticleArgs = CommonArgs & {
+export type newArticleParams = CommonParams & {
   slug?: string;
   title?: string;
   type?: string;
@@ -35,7 +35,7 @@ export type newArticleArgs = CommonArgs & {
 
 export async function newArticle(
   denops: Denops,
-  options: newArticleArgs,
+  options: newArticleParams,
 ): Promise<string> {
   const args = [...getZennArgs(options), "new:article", "--machine-readable"];
   if (options.slug) {
@@ -68,10 +68,9 @@ export async function newArticle(
   const { pipeOut, finalize, wait } = echoerrCommand(
     denops,
     getDenoExecutable(options),
-    getCommandOptions(options, { args }),
+    getCommandOptions(options, { args, cwd: options.cwd }),
   );
   const files: string[] = [];
-  await wait;
   await Promise.all([
     pipeOut.pipeTo(
       new WritableStream({
