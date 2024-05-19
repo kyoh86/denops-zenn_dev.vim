@@ -1,4 +1,4 @@
-*zenn_dev.txt* A Vim plugin to manage Zenn.dev denops.vim
+*zenn_dev.txt* A Vim plugin to manage Zenn.dev using denops.vim
                                         *zenn_dev* *denops-zenn_dev.txt*
 
 Author: kyoh86 <me@kyoh86.dev>
@@ -65,6 +65,8 @@ zenn_dev#setup#params({api-params})
 		-- It may create a new article with the slug "my-article" and
 		the title "My Article".
 <
+	See details of API parameters in |zenn_dev-api| and 
+	|zenn_dev-common-params|.
 
 zenn_dev#if#init({params})
 	Not implemented yet.
