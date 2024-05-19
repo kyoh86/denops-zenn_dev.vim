@@ -3,7 +3,7 @@ import { Denops } from "jsr:@denops/core@6.0.6";
 import {
   echoerrCommand,
 } from "https://denopkg.com/kyoh86/denops-util@v0.0.10/command.ts";
-import * as emoji from "https://deno.land/x/emoji@0.3.0/mod.ts";
+import * as emoji from "jsr:@denosaurs/emoji@0.3.0";
 import {
   type CommonParams,
   getCommandOptions,

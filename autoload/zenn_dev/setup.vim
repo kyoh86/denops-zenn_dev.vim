@@ -3,5 +3,5 @@ function zenn_dev#setup#params(params)
 endfunction
 
 function zenn_dev#setup#commands()
-  command! -nargs=* ZennDevNewArticle call denops#request("zenn_dev", "command:newArticle", [[<f-args>]])
+  command! -nargs=* ZennDevNewArticle call denops#request("zenn_dev", "command:newArticle", [{"mods": <q-mods>, "args": [<f-args>]}])
 endfunction
