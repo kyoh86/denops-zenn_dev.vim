@@ -31,7 +31,7 @@ You need to install |denops.vim| as a dependency.
 Setup ~
 
 You can setup this plugin by calling |zenn_dev#setup#commands()| and
-|zenn_dev#setup#params| function.
+|zenn_dev#setup#params()| function.
 
 
 ==============================================================================
@@ -41,19 +41,63 @@ Function ~
                                                    *zenn_dev#setup#commands()*
 zenn_dev#setup#commands()
 
-	TODO
+	Prepares the commands for |zenn_dev-commands|.
+	If you don't call this one, any commands will not be available.
 
                                                      *zenn_dev#setup#params()*
-zenn_dev#setup#params()
+zenn_dev#setup#params({api-params})
 
-	TODO
+	You may set the parameters for denops API in advance.
+	All of commands and functions in this plugin will use the API.
+	So they will use the parameters you set here.
+
+	{api-params} is a dictionary with the function name as a key and the
+	parameters dictionary as a value.
+
+	Example: >
+		call zenn_dev#setup#params({
+			\ 'new_article': {
+			\	'slug': 'my-article',
+			\	'title': 'My Article',
+			\ }})
+
+		call zenn_dev#if#new_article({})
+		-- It may create a new article with the slug "my-article" and
+		the title "My Article".
+<
+
+zenn_dev#if#init({params})
+	Not implemented yet.
+                                                   *zenn_dev#if#new_article()*
+zenn_dev#if#new_article({params})
+
+	Create new article.
+
+	{params} is a dictionary with the following keys:
+		- slug: string (default: "")
+		- title: string (default: "")
+		- type: string (default: "tech")
+		- emoji: string (default: "")
+		- published: boolean (default: false)
+		- publicationName: string (default: "")
+
+		  ...And some common parameters for Deno execution.
+		  See |zenn_dev-common-params| for details.
+
+zenn_dev#if#new_book({params})
+	Not implemented yet.
 
 
-==============================================================================
-                                                                *zenn_dev-api*
-API ~
+zenn_dev#if#list_articles({params})
+	Not implemented yet.
 
-	TODO
+
+zenn_dev#if#list_books({params})
+	Not implemented yet.
+
+
+zenn_dev#if#preview({params})
+	Not implemented yet.
 
 
 ==============================================================================
@@ -62,6 +106,9 @@ Commands ~
 
 If you call |zenn_dev#setup#command()| with "commands" option, you can use the
 follwing commands.
+
+:ZennDevInit
+	Not implemented yet.
 
                                       *ZennDevNewArticle* *:ZennDevNewArticle*
 :ZennDevNewArticle
@@ -83,6 +130,70 @@ follwing commands.
 		- --emoji=<emoji>: a single emoji charactor (default: "")
 		- --published (default: false)
 		- --publication-name=<publication-name> (default: "")
+
+
+:ZennDevNewBook
+	Not implemented yet.
+
+:ZennDevListArticles
+	Not implemented yet.
+
+:ZennDevListBooks
+	Not implemented yet.
+
+:ZennDevPreview
+	Not implemented yet.
+
+==============================================================================
+                                                                *zenn_dev-api*
+API ~
+
+There are some denops functions to interact with Zenn.dev.
+
+init({params})
+	Not implemented yet.
+
+                                                  *zenn_dev-api-new_article()*
+newArticle({params})
+
+	Create new article.
+
+	{params} is a dictionary with the following keys:
+		- slug: string (default: "")
+		- title: string (default: "")
+		- type: string (default: "tech")
+		- emoji: string (default: "")
+		- published: boolean (default: false)
+		- publicationName: string (default: "")
+
+		  ...And some common parameters for Deno execution.
+		  See |zenn_dev-common-params| for details.
+
+newBook({params})
+	Not implemented yet.
+
+listArticles({params})
+	Not implemented yet.
+
+listBooks({params})
+	Not implemented yet.
+
+preview({params})
+	Not implemented yet.
+
+
+==============================================================================
+                                                      *zenn_dev-common-params*
+Common Parameters ~
+
+All of the functions and APIs in this plugin will use the following parameters.
+
+	- denoExecutable: string (default: "deno")
+	- denoRunArgs: string[] (default: [])
+	- cwd: string (default: "")
+	- clearEnv: boolean (default: false)
+	- uid: number (default: -1)
+	- gid: number (default: -1)
 
 
 ==============================================================================
