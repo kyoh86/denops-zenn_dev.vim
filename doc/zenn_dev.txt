@@ -73,7 +73,7 @@ zenn_dev#if#init({params})
                                                    *zenn_dev#if#new_article()*
 zenn_dev#if#new_article({params})
 
-	Create new article.
+	Create new article and returns a path for the new article.
 
 	{params} is a dictionary with the following keys:
 		- slug: string (default: "")
@@ -85,6 +85,8 @@ zenn_dev#if#new_article({params})
 
 		  ...And some common parameters for Deno execution.
 		  See |zenn_dev-common-params| for details.
+	
+	Returns: (string) The path for the new article.
 
 zenn_dev#if#new_book({params})
 	Not implemented yet.
@@ -158,7 +160,7 @@ init({params})
                                                   *zenn_dev-api-new_article()*
 newArticle({params})
 
-	Create new article.
+	Create new article and returns a path for the new article.
 
 	{params} is a dictionary with the following keys:
 		- slug: string (default: "")
@@ -170,6 +172,8 @@ newArticle({params})
 
 		  ...And some common parameters for Deno execution.
 		  See |zenn_dev-common-params| for details.
+	
+	Returns: (string) The path for the new article.
 
 newBook({params})
 	Not implemented yet.
