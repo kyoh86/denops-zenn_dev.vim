@@ -251,7 +251,7 @@ preview({params})
                                                       *zenn_dev-common-params*
 Common Parameters ~
 
-All of the functions and APIs in this plugin will use the following parameters.
+Some of the functions and APIs in this plugin will use the following parameters.
 
 	- denoExecutable: string (default: "deno")
 	- denoRunArgs: string[] (default: [])
