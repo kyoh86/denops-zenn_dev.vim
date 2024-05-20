@@ -108,7 +108,21 @@ zenn_dev#if#new_book({params})
 
 
 zenn_dev#if#list_articles({params})
-	Not implemented yet.
+	Get a list of articles.
+
+	{params} is a dictionary with the following keys:
+		- cwd: string (default: "")
+	
+	Returns: (dict[]) The list of articles. Each element is a dictionary
+		with the following keys:
+		- path: string
+		- title: string
+		- type: string
+		- emoji: string
+		- topics: string[]
+		- published: boolean
+		- published_at: string (Optional)
+		- publication_name: string (Optional)
 
 
 zenn_dev#if#list_books({params})
@@ -161,12 +175,6 @@ follwing commands.
 	...And some common options for Deno execution.
 	See |zenn_dev-common-params| for details.
 
-:ZennDevListArticles
-	Not implemented yet.
-
-:ZennDevListBooks
-	Not implemented yet.
-
 :ZennDevPreview
 	Not implemented yet.
 
@@ -184,7 +192,7 @@ newArticle({params})
 
 	Create new article and returns a path for the new article.
 
-	{params} is a dictionary with the following keys:
+	{params} is a Record with the following keys:
 		- slug: string (default: "")
 		- title: string (default: "")
 		- type: string (default: "tech")
@@ -202,7 +210,7 @@ newBook({params})
 
 	Create new book and returns a path for the new book.
 
-	{params} is a dictionary with the following keys:
+	{params} is a Record with the following keys:
 		- slug: string (default: "")
 		- title: string (default: "")
 		- published: boolean (default: false)
@@ -215,7 +223,22 @@ newBook({params})
 	Returns: (string) The path for the new book.
 
 listArticles({params})
-	Not implemented yet.
+	Get a list of articles.
+
+	{params} is a Record with the following keys:
+		- cwd: string (default: "")
+	
+	Returns: (dict[]) The list of articles. Each element is a Record with
+		the following keys:
+		- path: string
+		- title: string
+		- type: string
+		- emoji: string
+		- topics: string[]
+		- published: boolean
+		- published_at: string | undefined
+		- publication_name: string | undefined
+
 
 listBooks({params})
 	Not implemented yet.

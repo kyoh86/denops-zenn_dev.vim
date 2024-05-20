@@ -7,12 +7,12 @@ import { parse } from "https://deno.land/x/denops_std@v6.5.0/argument/mod.ts";
 import opener from "./lib/opener.ts";
 import { camelObject } from "./lib/params.ts";
 import { isCommonParams } from "./command/common.ts";
+import { isListArticlesParams } from "./command/list_articles.ts";
 
 export function main(denops: Denops) {
   const bound = bindDispatcher({
     // TODO: init(uParams: unknown) {
     // TODO: preview(uParams: unknown) {
-    // TODO: listArticles(uParams: unknown) {
     // TODO: listBooks(uParams: unknown) {
     newArticle: (uParams: unknown) => {
       return newArticle(
@@ -29,6 +29,15 @@ export function main(denops: Denops) {
         ensure(
           uParams,
           is.IntersectionOf([isCommonParams, isNewBookParams]),
+        ),
+      );
+    },
+    listArticles: (uParams: unknown) => {
+      return newBook(
+        denops,
+        ensure(
+          uParams,
+          is.IntersectionOf([isCommonParams, isListArticlesParams]),
         ),
       );
     },
