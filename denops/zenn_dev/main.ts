@@ -14,8 +14,8 @@ export function main(denops: Denops) {
     // TODO: init(uParams: unknown) {
     // TODO: preview(uParams: unknown) {
     // TODO: listBooks(uParams: unknown) {
-    newArticle: (uParams: unknown) => {
-      return newArticle(
+    newArticle: async (uParams: unknown) => {
+      return await newArticle(
         denops,
         ensure(
           uParams,
@@ -23,8 +23,8 @@ export function main(denops: Denops) {
         ),
       );
     },
-    newBook: (uParams: unknown) => {
-      return newBook(
+    newBook: async (uParams: unknown) => {
+      return await newBook(
         denops,
         ensure(
           uParams,
@@ -32,8 +32,8 @@ export function main(denops: Denops) {
         ),
       );
     },
-    listArticles: (uParams: unknown) => {
-      return newBook(
+    listArticles: async (uParams: unknown) => {
+      return await newBook(
         denops,
         ensure(
           uParams,
@@ -52,7 +52,7 @@ export function main(denops: Denops) {
       if ("published" in flags) {
         flags.published = true;
       }
-      const file = bound.newArticle(camelObject({ ...opts, ...flags }));
+      const file = await bound.newArticle(camelObject({ ...opts, ...flags }));
       if (!file) {
         return;
       }
@@ -63,7 +63,7 @@ export function main(denops: Denops) {
       const [uOpts, uFlags] = parse(ensure(uArgs, is.ArrayOf(is.String)));
       const opts = ensure(uOpts, isCommonParams);
       const flags = ensure(uFlags, isNewBookParams);
-      const dir = bound.newBook(camelObject({ ...opts, ...flags }));
+      const dir = await bound.newBook(camelObject({ ...opts, ...flags }));
       if (!dir) {
         return;
       }
