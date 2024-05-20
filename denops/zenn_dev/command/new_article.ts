@@ -1,9 +1,9 @@
-import { is } from "jsr:@core/unknownutil@3.18.0";
-import { Denops } from "jsr:@denops/core@6.0.6";
+import { is } from "jsr:@core/unknownutil@3.18.1";
+import { Denops } from "jsr:@denops/core@6.1.0";
 import { TextLineStream } from "jsr:@std/streams@0.224.0";
 import {
   echoerrCommand,
-} from "https://denopkg.com/kyoh86/denops-util@v0.0.12/command.ts";
+} from "https://denopkg.com/kyoh86/denops-util@master/command.ts";
 import * as emoji from "jsr:@denosaurs/emoji@0.3.0";
 import {
   type CommonParams,
