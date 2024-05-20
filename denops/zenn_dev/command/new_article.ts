@@ -1,4 +1,4 @@
-import { is } from "jsr:@core/unknownutil@3.18.1";
+import { ensure, is } from "jsr:@core/unknownutil@3.18.1";
 import { Denops } from "jsr:@denops/core@6.1.0";
 import { TextLineStream } from "jsr:@std/streams@0.224.0";
 import {
@@ -61,6 +61,9 @@ export async function newArticle(
   }
   if (options.publicationName) {
     args.push("--publication-name", options.publicationName);
+  }
+  if (!options.cwd) {
+    options.cwd = ensure(await denops.call("getcwd"), is.String);
   }
   const { pipeOut, finalize, wait } = echoerrCommand(
     denops,

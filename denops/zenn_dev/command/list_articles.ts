@@ -2,7 +2,7 @@ import { basename, join } from "jsr:@std/path@0.225.1";
 import { createExtractor, Parser } from "jsr:@std/front-matter@0.224.0";
 import { parse as parseYAML } from "jsr:@std/yaml@0.224.0/parse";
 import { parse as parseTOML } from "jsr:@std/toml@0.224.0/parse";
-import { is } from "jsr:@core/unknownutil@^3.18.0";
+import { ensure, is } from "jsr:@core/unknownutil@^3.18.0";
 import { Denops } from "jsr:@denops/core@6.1.0";
 
 export type listArticlesParams = {
@@ -29,7 +29,8 @@ export async function listArticles(
   params: listArticlesParams,
 ): Promise<Article[]> {
   const articles = [];
-  for await (const article of enumerateArticles(params.cwd)) {
+  const cwd = params.cwd ?? ensure(await denops.call("getcwd"), is.String);
+  for await (const article of enumerateArticles(cwd)) {
     articles.push(article);
   }
   return articles;
