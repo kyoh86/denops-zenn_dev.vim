@@ -7,7 +7,7 @@ import { parse } from "https://deno.land/x/denops_std@v6.5.0/argument/mod.ts";
 import opener from "./lib/opener.ts";
 import { camelObject } from "./lib/params.ts";
 import { isCommonParams } from "./command/common.ts";
-import { isListArticlesParams } from "./command/list_articles.ts";
+import { isListArticlesParams, listArticles } from "./command/list_articles.ts";
 
 export function main(denops: Denops) {
   const bound = bindDispatcher({
@@ -33,11 +33,11 @@ export function main(denops: Denops) {
       );
     },
     listArticles: async (uParams: unknown) => {
-      return await newBook(
+      return await listArticles(
         denops,
         ensure(
           uParams,
-          is.IntersectionOf([isCommonParams, isListArticlesParams]),
+          isListArticlesParams,
         ),
       );
     },
