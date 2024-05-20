@@ -1,5 +1,5 @@
-*zenn_dev.txt* A Vim plugin to manage Zenn.dev using denops.vim
-                                        *zenn_dev* *denops-zenn_dev.txt*
+*zenn_dev.txt* A Vim plugin to manage Zenn.dev using denops.vim (without Node.js)
+                                              *zenn_dev* *denops-zenn_dev.txt*
 
 Author: kyoh86 <me@kyoh86.dev>
 License: MIT License

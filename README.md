@@ -1,16 +1,25 @@
 # denops-zenn_dev.vim
 
-Superpractilisticexpermientocious.
+A Vim plugin to manage Zenn.dev using denops.vim (without Node.js)
 
-## Usage
+## Install
 
-1. Fork this repository to `denops-xxx.vim`
-1. Call `init.zsh hogehoge` to replace names in the repository
-1. Delete this section from README.md
+You need to install |denops.vim| as a dependency.
 
-## doc
+* vim-denops/denops.vim https://github.com/vim-denops/denops.vim
 
-[./doc/zenn_dev.txt](./doc/zenn_dev.txt)
+## Doc
+
+[`./doc/zenn_dev.txt`](./doc/zenn_dev.txt)
+
+## Implements
+
+- [ ] init
+- [x] new:article
+- [x] new:book
+- [x] list:articles
+- [ ] list:books
+- [ ] preview
 
 # License
 
