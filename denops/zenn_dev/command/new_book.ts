@@ -56,6 +56,7 @@ export async function newBook(
     ).pipeTo(
       new WritableStream({
         write: (line) => {
+          // deno-lint-ignore no-control-regex
           const match = new RegExp(
             "^created: (?:\\x1B\\x5B32m)?(books\/.+)\/config\.yaml(?:\\x1B\\x5B39m)?$",
           ).exec(line);
