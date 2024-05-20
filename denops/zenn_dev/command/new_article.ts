@@ -9,22 +9,18 @@ import {
   getCommandOptions,
   getDenoExecutable,
   getZennArgs,
-  isCommonParams,
 } from "./common.ts";
 
-export const isNewArticleParams = is.IntersectionOf([
-  isCommonParams,
-  is.ObjectOf({
-    slug: is.OptionalOf(is.String), // 記事のスラッグ. `a-z0-9`とハイフン(`-`)とアンダースコア(`_`)の12〜50字の組み合わせ
-    title: is.OptionalOf(is.String), // 記事のタイトル
-    type: is.OptionalOf(is.String), // 記事のタイプ. tech (技術記事) / idea (アイデア記事) のどちらかから選択
-    emoji: is.OptionalOf(is.String), // アイキャッチとして使われる絵文字（1文字だけ）
-    published: is.OptionalOf(is.Boolean), // 公開設定. true か false を指定する. デフォルトで"false"
-    publicationName: is.OptionalOf(is.String), // Publication名. Zenn Publication に紐付ける場合のみ指定
-  }),
-]);
+export const isNewArticleParams = is.ObjectOf({
+  slug: is.OptionalOf(is.String), // 記事のスラッグ. `a-z0-9`とハイフン(`-`)とアンダースコア(`_`)の12〜50字の組み合わせ
+  title: is.OptionalOf(is.String), // 記事のタイトル
+  type: is.OptionalOf(is.String), // 記事のタイプ. tech (技術記事) / idea (アイデア記事) のどちらかから選択
+  emoji: is.OptionalOf(is.String), // アイキャッチとして使われる絵文字（1文字だけ）
+  published: is.OptionalOf(is.Boolean), // 公開設定. true か false を指定する. デフォルトで"false"
+  publicationName: is.OptionalOf(is.String), // Publication名. Zenn Publication に紐付ける場合のみ指定
+});
 
-export type newArticleParams = CommonParams & {
+export type newArticleParams = {
   slug?: string;
   title?: string;
   type?: string;
@@ -35,7 +31,7 @@ export type newArticleParams = CommonParams & {
 
 export async function newArticle(
   denops: Denops,
-  options: newArticleParams,
+  options: CommonParams & newArticleParams,
 ): Promise<string> {
   const args = [...getZennArgs(options), "new:article", "--machine-readable"];
   if (options.slug) {

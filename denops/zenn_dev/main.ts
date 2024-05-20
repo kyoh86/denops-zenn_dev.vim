@@ -5,6 +5,7 @@ import { ensure, is } from "jsr:@core/unknownutil@3.18.0";
 import { parse } from "https://deno.land/x/denops_std@v6.4.0/argument/mod.ts";
 import opener from "./lib/opener.ts";
 import { camelObject } from "./lib/params.ts";
+import { isCommonParams } from "./command/common.ts";
 
 export function main(denops: Denops) {
   const bound = bindDispatcher({
@@ -14,7 +15,13 @@ export function main(denops: Denops) {
     // TODO: listArticles(uParams: unknown) {
     // TODO: listBooks(uParams: unknown) {
     newArticle: (uParams: unknown) => {
-      return newArticle(denops, ensure(uParams, isNewArticleParams));
+      return newArticle(
+        denops,
+        ensure(
+          uParams,
+          is.IntersectionOf([isCommonParams, isNewArticleParams]),
+        ),
+      );
     },
   });
 
@@ -22,8 +29,8 @@ export function main(denops: Denops) {
     ...bound,
     "command:newArticle": async (uMods: unknown, uArgs: unknown) => {
       const [uOpts, uFlags] = parse(ensure(uArgs, is.ArrayOf(is.String)));
-      const opts = ensure(uOpts, is.Record);
-      const flags = ensure(uFlags, is.Record);
+      const opts = ensure(uOpts, isCommonParams);
+      const flags = ensure(uFlags, isNewArticleParams);
       if ("published" in flags) {
         flags.published = true;
       }
