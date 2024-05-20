@@ -33,6 +33,15 @@ Setup ~
 You can setup this plugin by calling |zenn_dev#setup#commands()| and
 |zenn_dev#setup#params()| function.
 
+NOTE: You should call these functions in the DenopsPluginPost:zenn_dev
+autocommand event.
+
+e.g. >
+	autocmd User DenopsPluginPost:zenn_dev call zenn_dev#setup#commands({
+		\ 'ZennDevNewArticle': v:true,
+		\ })
+<
+
 
 ==============================================================================
                                                            *zenn_dev-function*
