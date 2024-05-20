@@ -1,8 +1,9 @@
 import { is } from "jsr:@core/unknownutil@3.18.0";
 import { Denops } from "jsr:@denops/core@6.0.6";
+import { TextLineStream } from "jsr:@std/streams@0.224.0";
 import {
   echoerrCommand,
-} from "https://denopkg.com/kyoh86/denops-util@v0.0.10/command.ts";
+} from "https://denopkg.com/kyoh86/denops-util@v0.0.12/command.ts";
 import * as emoji from "jsr:@denosaurs/emoji@0.3.0";
 import {
   type CommonParams,
@@ -68,10 +69,12 @@ export async function newArticle(
   );
   const files: string[] = [];
   await Promise.all([
-    pipeOut.pipeTo(
+    pipeOut.pipeThrough(
+      new TextLineStream(),
+    ).pipeTo(
       new WritableStream({
-        write: (chunk) => {
-          files.push(chunk.trimEnd());
+        write: (line) => {
+          files.push(line.trimEnd());
         },
       }),
     ),

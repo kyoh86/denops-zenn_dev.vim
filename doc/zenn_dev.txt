@@ -9,12 +9,12 @@ License: MIT License
                                                            *zenn_dev-contents*
 Contents ~
 
-Install           |zenn_dev-install|
-Setup             |zenn_dev-setup|
-Function          |zenn_dev-function|
-API               |zenn_dev-api|
-Commands          |zenn_dev-commands|
-Denops commands   |zenn_dev-denops-commands|
+Install                |zenn_dev-install|
+Setup                  |zenn_dev-setup|
+Function               |zenn_dev-function|
+Commands               |zenn_dev-commands|
+API                    |zenn_dev-api|
+Common Parameters      |zenn_dev-common-parameters|
 
 
 ==============================================================================
@@ -70,6 +70,7 @@ zenn_dev#setup#params({api-params})
 
 zenn_dev#if#init({params})
 	Not implemented yet.
+
                                                    *zenn_dev#if#new_article()*
 zenn_dev#if#new_article({params})
 
@@ -88,8 +89,22 @@ zenn_dev#if#new_article({params})
 	
 	Returns: (string) The path for the new article.
 
+                                                      *zenn_dev#if#new_book()*
 zenn_dev#if#new_book({params})
-	Not implemented yet.
+
+	Create new book and returns a path for the new book.
+
+	{params} is a dictionary with the following keys:
+		- slug: string (default: "")
+		- title: string (default: "")
+		- published: boolean (default: false)
+		- summary: string (default: "")
+		- price: string (default: "0")
+
+		  ...And some common parameters for Deno execution.
+		  See |zenn_dev-common-params| for details.
+	
+	Returns: (string) The path for the new book.
 
 
 zenn_dev#if#list_articles({params})
@@ -111,6 +126,7 @@ Commands ~
 If you call |zenn_dev#setup#command()| with "commands" option, you can use the
 follwing commands.
 
+
 :ZennDevInit
 	Not implemented yet.
 
@@ -118,14 +134,6 @@ follwing commands.
 :ZennDevNewArticle
 
 	Create new article.
-
-	Deno Execution Options:
-		- ++deno-executable=<deno-executable>: Deno executable path
-		- ++deno-run-args=<deno-run-args>: Deno run arguments
-		- ++cwd=<cwd>: Current working directory
-		- ++clear-env: Clear environment variables
-		- ++uid=<uid>: User ID
-		- ++gid=<gid>: Group ID
 
 	Optional flags:
 		- --slug=<slug> (default: "")
@@ -135,9 +143,23 @@ follwing commands.
 		- --published (default: false)
 		- --publication-name=<publication-name> (default: "")
 
+	...And some common options for Deno execution.
+	See |zenn_dev-common-params| for details.
 
+                                            *ZennDevNewBook* *:ZennDevNewBook*
 :ZennDevNewBook
-	Not implemented yet.
+
+	Create new book.
+
+	Optional flags:
+		- --slug=<slug> (default: "")
+		- --title=<title> (default: "")
+		- --published (default: false)
+		- --summary=<summary> (default: "")
+		- --price=<price> (default: "0")
+
+	...And some common options for Deno execution.
+	See |zenn_dev-common-params| for details.
 
 :ZennDevListArticles
 	Not implemented yet.
@@ -157,7 +179,7 @@ There are some denops functions to interact with Zenn.dev.
 init({params})
 	Not implemented yet.
 
-                                                  *zenn_dev-api-new_article()*
+                                                   *zenn_dev-api-newArticle()*
 newArticle({params})
 
 	Create new article and returns a path for the new article.
@@ -175,8 +197,22 @@ newArticle({params})
 	
 	Returns: (string) The path for the new article.
 
+                                                      *zenn_dev-api-newBook()*
 newBook({params})
-	Not implemented yet.
+
+	Create new book and returns a path for the new book.
+
+	{params} is a dictionary with the following keys:
+		- slug: string (default: "")
+		- title: string (default: "")
+		- published: boolean (default: false)
+		- summary: string (default: "")
+		- price: string (default: "0")
+
+		  ...And some common parameters for Deno execution.
+		  See |zenn_dev-common-params| for details.
+	
+	Returns: (string) The path for the new book.
 
 listArticles({params})
 	Not implemented yet.
@@ -200,6 +236,14 @@ All of the functions and APIs in this plugin will use the following parameters.
 	- clearEnv: boolean (default: false)
 	- uid: number (default: -1)
 	- gid: number (default: -1)
+
+All commands accepts Deno execution options:
+	- ++deno-executable=<deno-executable>: Deno executable path
+	- ++deno-run-args=<deno-run-args>: Deno run arguments
+	- ++cwd=<cwd>: Current working directory
+	- ++clear-env: Clear environment variables
+	- ++uid=<uid>: User ID
+	- ++gid=<gid>: Group ID
 
 
 ==============================================================================
