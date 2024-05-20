@@ -137,9 +137,7 @@ zenn_dev#if#preview({params})
                                                            *zenn_dev-commands*
 Commands ~
 
-If you call |zenn_dev#setup#command()| with "commands" option, you can use the
-follwing commands.
-
+If you call |zenn_dev#setup#commands()|, you can use the follwing commands.
 
 :ZennDevInit
 	Not implemented yet.
