@@ -6,7 +6,7 @@ A Vim plugin to manage Zenn.dev using denops.vim (without Node.js)
 
 You need to install |denops.vim| as a dependency.
 
-* vim-denops/denops.vim https://github.com/vim-denops/denops.vim
+- vim-denops/denops.vim https://github.com/vim-denops/denops.vim
 
 ## Doc
 
