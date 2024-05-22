@@ -1,11 +1,11 @@
 import { Denops } from "jsr:@denops/core@6.1.0";
 import { isNewArticleParams, newArticle } from "./command/new_article.ts";
 import { isNewBookParams, newBook } from "./command/new_book.ts";
-import { bindDispatcher } from "jsr:@kyoh86/denops-bind-params@0.0.1-alpha.2";
+import { bindDispatcher } from "jsr:@kyoh86/denops-bind-params@0.0.2";
+import { kebabToCamel } from "jsr:@kyoh86/denops-bind-params@0.0.2/keycase";
 import { ensure, is } from "jsr:@core/unknownutil@3.18.1";
 import { parse } from "https://deno.land/x/denops_std@v6.5.0/argument/mod.ts";
 import opener from "./lib/opener.ts";
-import { camelObject } from "./lib/params.ts";
 import { isCommonParams } from "./command/common.ts";
 import { isListArticlesParams, listArticles } from "./command/list_articles.ts";
 
@@ -52,7 +52,7 @@ export function main(denops: Denops) {
       if ("published" in flags) {
         flags.published = true;
       }
-      const file = await bound.newArticle(camelObject({ ...opts, ...flags }));
+      const file = await bound.newArticle(kebabToCamel({ ...opts, ...flags }));
       if (!file) {
         return;
       }
@@ -63,7 +63,7 @@ export function main(denops: Denops) {
       const [uOpts, uFlags] = parse(ensure(uArgs, is.ArrayOf(is.String)));
       const opts = ensure(uOpts, isCommonParams);
       const flags = ensure(uFlags, isNewBookParams);
-      const dir = await bound.newBook(camelObject({ ...opts, ...flags }));
+      const dir = await bound.newBook(kebabToCamel({ ...opts, ...flags }));
       if (!dir) {
         return;
       }
