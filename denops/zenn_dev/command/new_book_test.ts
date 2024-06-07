@@ -1,7 +1,7 @@
 import { test } from "https://deno.land/x/denops_test@v1.8.0/mod.ts";
-import { assert, assertEquals } from "jsr:@std/assert@0.225.3";
+import { assert, assertEquals } from "jsr:@std/assert@0.226.0";
 import { newBook } from "./new_book.ts";
-import { join } from "jsr:@std/path@0.225.1";
+import { join } from "jsr:@std/path@0.225.2";
 
 test({
   mode: "all",
