@@ -1,7 +1,7 @@
-import { basename, join } from "jsr:@std/path@0.225.1";
-import { createExtractor, Parser } from "jsr:@std/front-matter@0.224.0";
-import { parse as parseYAML } from "jsr:@std/yaml@0.224.0/parse";
-import { parse as parseTOML } from "jsr:@std/toml@0.224.0/parse";
+import { basename, join } from "jsr:@std/path@0.225.2";
+import { createExtractor, Parser } from "jsr:@std/front-matter@0.224.2";
+import { parse as parseYAML } from "jsr:@std/yaml@0.224.1/parse";
+import { parse as parseTOML } from "jsr:@std/toml@0.224.1/parse";
 import { ensure, is } from "jsr:@core/unknownutil@^3.18.0";
 import { Denops } from "jsr:@denops/core@6.1.0";
 

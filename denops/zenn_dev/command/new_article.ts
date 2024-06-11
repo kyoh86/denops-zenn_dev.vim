@@ -1,6 +1,6 @@
 import { ensure, is } from "jsr:@core/unknownutil@3.18.1";
 import { Denops } from "jsr:@denops/core@6.1.0";
-import { TextLineStream } from "jsr:@std/streams@0.224.1";
+import { TextLineStream } from "jsr:@std/streams@0.224.4";
 import {
   echoerrCommand,
 } from "https://denopkg.com/kyoh86/denops-util@master/command.ts";
