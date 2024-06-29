@@ -45,15 +45,19 @@ export async function newArticle(
     args.push("--type", options.type);
   }
   if (options.emoji) {
-    switch (options.emoji.length) {
+    switch ([...options.emoji].length) {
       case 0:
         break; // noop
       case 1:
         args.push("--emoji", options.emoji);
         break;
-      default:
-        args.push("--emoji", emoji.get(options.emoji));
+      default: {
+        const c = emoji.get(options.emoji);
+        if (c) {
+          args.push("--emoji", c);
+        }
         break;
+      }
     }
   }
   if (options.published) {
