@@ -1,9 +1,9 @@
-import { basename, join } from "jsr:@std/path@0.225.2";
+import { basename, join } from "jsr:@std/path@1.0.1";
 import { createExtractor, Parser } from "jsr:@std/front-matter@0.224.3";
 import { parse as parseYAML } from "jsr:@std/yaml@0.224.3/parse";
-import { parse as parseTOML } from "jsr:@std/toml@0.224.1/parse";
+import { parse as parseTOML } from "jsr:@std/toml@1.0.0/parse";
 import { ensure, is } from "jsr:@core/unknownutil@^3.18.0";
-import { Denops } from "jsr:@denops/core@6.1.0";
+import { Denops } from "jsr:@denops/core@7.0.0";
 
 export type listArticlesParams = {
   cwd?: string;

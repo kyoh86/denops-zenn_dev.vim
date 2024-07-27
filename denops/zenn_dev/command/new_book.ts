@@ -1,5 +1,5 @@
 import { ensure, is } from "jsr:@core/unknownutil@3.18.1";
-import { Denops } from "jsr:@denops/core@6.1.0";
+import { Denops } from "jsr:@denops/core@7.0.0";
 import { TextLineStream } from "jsr:@std/streams@0.224.5";
 import {
   echoerrCommand,
