@@ -1,4 +1,4 @@
-import { test } from "https://deno.land/x/denops_test@v1.8.0/mod.ts";
+import { test } from "jsr:@denops/test@3.0.1";
 import { assert, assertEquals } from "jsr:@std/assert@1.0.0";
 import { newArticle } from "./new_article.ts";
 import { join } from "jsr:@std/path@1.0.1";
