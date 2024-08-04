@@ -1,6 +1,6 @@
-import { ensure, is } from "jsr:@core/unknownutil@~3.18.1";
+import { as, ensure, is } from "jsr:@core/unknownutil@~4.0.0";
 import type { Denops } from "jsr:@denops/core@~7.0.0";
-import { TextLineStream } from "jsr:@std/streams@~0.224.5";
+import { TextLineStream } from "jsr:@std/streams@~1.0.0";
 import { echoerrCommand } from "jsr:@kyoh86/denops-util@~0.1.0/command";
 import {
   type CommonParams,
@@ -10,11 +10,11 @@ import {
 } from "./common.ts";
 
 export const isNewBookParams = is.ObjectOf({
-  slug: is.OptionalOf(is.String), // 記事のスラッグ. `a-z0-9`とハイフン(`-`)とアンダースコア(`_`)の12〜50字の組み合わせ
-  title: is.OptionalOf(is.String), // 記事のタイトル
-  published: is.OptionalOf(is.Boolean), // 公開設定. true か false を指定する. デフォルトで"false"
-  summary: is.OptionalOf(is.String), // 本の紹介文. 有料の本であっても公開される
-  price: is.OptionalOf(is.String), // 本の価格.有料の場合200〜5000. デフォルトは0
+  slug: as.Optional(is.String), // 記事のスラッグ. `a-z0-9`とハイフン(`-`)とアンダースコア(`_`)の12〜50字の組み合わせ
+  title: as.Optional(is.String), // 記事のタイトル
+  published: as.Optional(is.Boolean), // 公開設定. true か false を指定する. デフォルトで"false"
+  summary: as.Optional(is.String), // 本の紹介文. 有料の本であっても公開される
+  price: as.Optional(is.String), // 本の価格.有料の場合200〜5000. デフォルトは0
 });
 
 export type newBookParams = {

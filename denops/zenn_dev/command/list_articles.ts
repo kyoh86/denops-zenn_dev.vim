@@ -1,15 +1,13 @@
 import { basename, join } from "jsr:@std/path@~1.0.1";
-import { createExtractor, type Parser } from "jsr:@std/front-matter@~0.224.3";
-import { parse as parseYAML } from "jsr:@std/yaml@~0.224.3/parse";
-import { parse as parseTOML } from "jsr:@std/toml@~1.0.0/parse";
-import { ensure, is } from "jsr:@core/unknownutil@~3.18.0";
+import { extractYaml } from "jsr:@std/front-matter@~1.0.0";
+import { as, ensure, is } from "jsr:@core/unknownutil@~4.0.0";
 import type { Denops } from "jsr:@denops/core@~7.0.0";
 
 export type listArticlesParams = {
   cwd?: string;
 };
 export const isListArticlesParams = is.ObjectOf({
-  cwd: is.OptionalOf(is.String),
+  cwd: as.Optional(is.String),
 });
 
 export type Article = {
@@ -64,18 +62,12 @@ async function* enumerateArticles(cwd?: string) {
   }
 }
 
-const extractFrontMatter = createExtractor({
-  toml: parseTOML as Parser,
-  yaml: parseYAML as Parser,
-  json: JSON.parse as Parser,
-});
-
 async function readFrontMatter(path: string) {
   try {
     const text = await Deno.readTextFile(path);
     const slug = basename(path).replace(/\.md$/, "");
     return {
-      ...extractFrontMatter<{
+      ...extractYaml<{
         title: string;
         emoji: string;
         type: string;

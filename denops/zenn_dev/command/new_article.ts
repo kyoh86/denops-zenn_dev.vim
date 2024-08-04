@@ -1,6 +1,6 @@
-import { ensure, is } from "jsr:@core/unknownutil@~3.18.1";
+import { as, ensure, is } from "jsr:@core/unknownutil@~4.0.0";
 import type { Denops } from "jsr:@denops/core@~7.0.0";
-import { TextLineStream } from "jsr:@std/streams@~0.224.5";
+import { TextLineStream } from "jsr:@std/streams@~1.0.0";
 import { echoerrCommand } from "jsr:@kyoh86/denops-util@~0.1.0/command";
 import * as emoji from "jsr:@denosaurs/emoji@~0.3.0";
 import {
@@ -11,12 +11,12 @@ import {
 } from "./common.ts";
 
 export const isNewArticleParams = is.ObjectOf({
-  slug: is.OptionalOf(is.String), // 記事のスラッグ. `a-z0-9`とハイフン(`-`)とアンダースコア(`_`)の12〜50字の組み合わせ
-  title: is.OptionalOf(is.String), // 記事のタイトル
-  type: is.OptionalOf(is.String), // 記事のタイプ. tech (技術記事) / idea (アイデア記事) のどちらかから選択
-  emoji: is.OptionalOf(is.String), // アイキャッチとして使われる絵文字（1文字だけ）
-  published: is.OptionalOf(is.Boolean), // 公開設定. true か false を指定する. デフォルトで"false"
-  publicationName: is.OptionalOf(is.String), // Publication名. Zenn Publication に紐付ける場合のみ指定
+  slug: as.Optional(is.String), // 記事のスラッグ. `a-z0-9`とハイフン(`-`)とアンダースコア(`_`)の12〜50字の組み合わせ
+  title: as.Optional(is.String), // 記事のタイトル
+  type: as.Optional(is.String), // 記事のタイプ. tech (技術記事) / idea (アイデア記事) のどちらかから選択
+  emoji: as.Optional(is.String), // アイキャッチとして使われる絵文字（1文字だけ）
+  published: as.Optional(is.Boolean), // 公開設定. true か false を指定する. デフォルトで"false"
+  publicationName: as.Optional(is.String), // Publication名. Zenn Publication に紐付ける場合のみ指定
 });
 
 export type newArticleParams = {

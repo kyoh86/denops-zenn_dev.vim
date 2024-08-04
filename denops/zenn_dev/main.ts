@@ -3,7 +3,7 @@ import { isNewArticleParams, newArticle } from "./command/new_article.ts";
 import { isNewBookParams, newBook } from "./command/new_book.ts";
 import { bindDispatcher } from "jsr:@kyoh86/denops-bind-params@~0.0.3";
 import { kebabToCamel } from "jsr:@kyoh86/denops-bind-params@~0.0.3/keycase";
-import { ensure, is } from "jsr:@core/unknownutil@~3.18.1";
+import { ensure, is } from "jsr:@core/unknownutil@~4.0.0";
 import { parse } from "jsr:@denops/std@~7.0.0/argument";
 import opener from "./lib/opener.ts";
 import { isCommonParams } from "./command/common.ts";

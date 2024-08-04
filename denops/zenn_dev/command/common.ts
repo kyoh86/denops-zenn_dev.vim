@@ -1,4 +1,4 @@
-import { is } from "jsr:@core/unknownutil@~3.18.1";
+import { as, is } from "jsr:@core/unknownutil@~4.0.0";
 
 const defaultDenoExecutable = "deno";
 const defaultZennArgs = [
@@ -27,13 +27,13 @@ export function getCommandOptions(
 }
 
 export const isCommonParams = is.ObjectOf({
-  denoExecutable: is.OptionalOf(is.String),
-  denoRunArgs: is.OptionalOf(is.ArrayOf(is.String)),
-  cwd: is.OptionalOf(is.String),
-  env: is.OptionalOf(is.RecordOf(is.String, is.String)),
-  clearEnv: is.OptionalOf(is.Boolean),
-  uid: is.OptionalOf(is.Number),
-  gid: is.OptionalOf(is.Number),
+  denoExecutable: as.Optional(is.String),
+  denoRunArgs: as.Optional(is.ArrayOf(is.String)),
+  cwd: as.Optional(is.String),
+  env: as.Optional(is.RecordOf(is.String, is.String)),
+  clearEnv: as.Optional(is.Boolean),
+  uid: as.Optional(is.Number),
+  gid: as.Optional(is.Number),
 });
 
 export interface CommonParams {
