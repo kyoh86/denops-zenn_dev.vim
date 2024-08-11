@@ -1,4 +1,4 @@
-import { as, ensure, is } from "jsr:@core/unknownutil@~4.0.0";
+import { as, ensure, is } from "jsr:@core/unknownutil@~4.1.0";
 import type { Denops } from "jsr:@denops/core@~7.0.0";
 import { TextLineStream } from "jsr:@std/streams@~1.0.0";
 import { echoerrCommand } from "jsr:@kyoh86/denops-util@~0.1.0/command";
