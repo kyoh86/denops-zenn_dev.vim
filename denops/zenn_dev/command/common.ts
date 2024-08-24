@@ -1,4 +1,4 @@
-import { as, is } from "jsr:@core/unknownutil@~4.1.0";
+import { as, is } from "jsr:@core/unknownutil@~4.3.0";
 
 const defaultDenoExecutable = "deno";
 const defaultZennArgs = [
