@@ -4,7 +4,7 @@ import { isNewBookParams, newBook } from "./command/new_book.ts";
 import { bindDispatcher } from "jsr:@kyoh86/denops-bind-params@~0.0.3";
 import { kebabToCamel } from "jsr:@kyoh86/denops-bind-params@~0.0.3/keycase";
 import { ensure, is } from "jsr:@core/unknownutil@~4.3.0";
-import { parse } from "jsr:@denops/std@~7.3.0/argument";
+import { parse } from "jsr:@denops/std@~7.4.0/argument";
 import opener from "./lib/opener.ts";
 import { isCommonParams } from "./command/common.ts";
 import { isListArticlesParams, listArticles } from "./command/list_articles.ts";
