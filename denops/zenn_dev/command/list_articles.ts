@@ -1,7 +1,7 @@
 import { basename, join } from "jsr:@std/path@~1.1.0";
 import { extractYaml } from "jsr:@std/front-matter@~1.0.0";
 import { as, ensure, is } from "jsr:@core/unknownutil@~4.3.0";
-import type { Denops } from "jsr:@denops/core@~7.0.0";
+import type { Denops } from "jsr:@denops/core@~8.0.0";
 
 export type listArticlesParams = {
   cwd?: string;

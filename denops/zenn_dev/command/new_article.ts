@@ -1,5 +1,5 @@
 import { as, ensure, is } from "jsr:@core/unknownutil@~4.3.0";
-import type { Denops } from "jsr:@denops/core@~7.0.0";
+import type { Denops } from "jsr:@denops/core@~8.0.0";
 import { TextLineStream } from "jsr:@std/streams@~1.0.0";
 import { echoerrCommand } from "jsr:@kyoh86/denops-util@~0.1.0/command";
 import * as emoji from "jsr:@denosaurs/emoji@~0.3.0";
