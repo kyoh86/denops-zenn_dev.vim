@@ -1,7 +1,7 @@
-import { test } from "jsr:@denops/test@~3.0.1";
-import { assert, assertEquals } from "jsr:@std/assert@~1.0.0";
+import { test } from "@denops/test";
+import { assert, assertEquals } from "@std/assert";
 import { newArticle } from "./new_article.ts";
-import { join } from "jsr:@std/path@~1.1.0";
+import { join } from "@std/path";
 
 test({
   mode: "all",

@@ -1,7 +1,7 @@
-import { as, ensure, is } from "jsr:@core/unknownutil@~4.3.0";
-import type { Denops } from "jsr:@denops/core@~8.0.0";
-import { TextLineStream } from "jsr:@std/streams@~1.0.0";
-import { echoerrCommand } from "jsr:@kyoh86/denops-util@~0.1.0/command";
+import { as, ensure, is } from "@core/unknownutil";
+import type { Denops } from "@denops/core";
+import { TextLineStream } from "@std/streams";
+import { echoerrCommand } from "@kyoh86/denops-util/command";
 import {
   type CommonParams,
   getCommandOptions,
