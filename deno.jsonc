@@ -25,7 +25,7 @@
     "@denosaurs/emoji": "jsr:@denosaurs/emoji@^0.3.1",
     "@kyoh86/denops-bind-params": "jsr:@kyoh86/denops-bind-params@^0.0.3",
     "@kyoh86/denops-util": "jsr:@kyoh86/denops-util@^0.1.2",
-    "@std/assert": "jsr:@std/assert@^1.0.18",
+    "@std/assert": "jsr:@std/assert@^1.0.19",
     "@std/front-matter": "jsr:@std/front-matter@^1.0.9",
     "@std/path": "jsr:@std/path@^1.1.4",
     "@std/streams": "jsr:@std/streams@^1.0.17"
