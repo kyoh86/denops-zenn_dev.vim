@@ -3,11 +3,7 @@ import { as, is } from "@core/unknownutil";
 const defaultDenoExecutable = "deno";
 const defaultZennArgs = [
   "run",
-  "--allow-env",
-  "--allow-read",
-  "--allow-sys",
-  "--allow-net",
-  "--allow-write",
+  "-A",
   "--unstable-fs",
   "npm:zenn-cli",
 ];
